@@ -31,7 +31,7 @@ class Main {
         }
 
         if (numb1 < 1 || numb1 > 10 || numb2 < 1 || numb2 > 10) {
-            throw new IllegalArgumentException("Числа должны быть в диапазоне от 1 до 10.");
+            throw new IllegalArgumentException("Диапозон для a и b от 1 до 10");
         }
 
         switch (operator) {
@@ -47,12 +47,12 @@ class Main {
 
             case "/":
                 if (numb2 == 0) {
-                    throw new ArithmeticException("Деление на ноль невозможно.");
+                    throw new ArithmeticException("Делить на ноль нельзя");
                 }
                 return String.valueOf(numb1 / numb2);
 
             default:
-                throw new IllegalArgumentException("Неподдерживаемая операция: " + operator);
+                throw new IllegalArgumentException("Нет такой операции: " + operator);
         }
     }
 
@@ -61,9 +61,10 @@ class Main {
         Scanner scan = new Scanner(System.in);
 
         try {
+            System.out.println("Введите выражение в формате a + b:");
             String input = scan.nextLine();
             String result = calc(input);
-            System.out.println(result);
+            System.out.println("Результат операции = " + result);
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
